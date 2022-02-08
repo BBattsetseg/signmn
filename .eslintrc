@@ -1,0 +1,77 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "jsx-a11y",
+    "react-hooks",
+    "@typescript-eslint",
+    "unicorn",
+    "functional",
+    "import",
+    "prettier"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/strict",
+    "plugin:functional/stylistic",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "prettier"
+  ],
+  "rules": {
+    "react/self-closing-comp": ["error", {
+      "component": true,
+      "html": true
+    }],
+    "key-spacing": [1, {"mode": "strict"}],
+    "@typescript-eslint/indent": [ 1, 2 ],
+    "no-console": 1,
+    "react-hooks/rules-of-hooks": 1,
+    "react-hooks/exhaustive-deps": 2,
+    "react/react-in-jsx-scope": 0,
+    "@typescript-eslint/no-unused-vars": 0,
+    "@typescript-eslint/explicit-member-accessibility": 0,
+    "@typescript-eslint/member-delimiter-style": 0,
+    "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/no-use-before-define": 0,
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/no-non-null-assertion": 0,
+    "no-undef": 0,
+    "no-unused-vars": 1,
+    "jsx-a11y/label-has-for": 0,
+    "react/no-unescaped-entities": 0,
+    "prettier/prettier": 2,
+    "unicorn/import-style": [1, {
+      "styles": {
+        "util": false,
+        "path": {
+          "named": true
+        }
+      }
+    }],
+    "import/no-default-export": 2,
+    "import/no-unassigned-import": 2,
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "alphabetize": { "order": "asc" },
+        "groups": ["builtin", "external", "parent", "sibling", "index", "type"]
+      }
+    ]
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  }
+}
