@@ -35,6 +35,7 @@ const Nav = ({ ids, offsetY }: NavTypes) => {
           return (
             <NavLink key={title} href={`#${ids[i]}`} title={title}>
               <Icon />
+              {/* <p>{title}</p> */}
             </NavLink>
           );
         })}

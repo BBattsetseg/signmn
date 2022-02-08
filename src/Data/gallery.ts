@@ -1,11 +1,11 @@
-import beach from '../Assets/images/gallery/compressed/beach.jpg';
-import blackish from '../Assets/images/gallery/compressed/blackish.jpg';
-import branches from '../Assets/images/gallery/compressed/branches.jpg';
-import christmasTree from '../Assets/images/gallery/compressed/christmas-tree.jpg';
-import lighthouse from '../Assets/images/gallery/compressed/lighthouse.jpg';
-import mountains from '../Assets/images/gallery/compressed/mountains.jpg';
-import nature from '../Assets/images/gallery/compressed/nature.jpg';
-import nothernLights from '../Assets/images/gallery/compressed/northern-lights.jpg';
+import beach from '../Assets/images/gallery/compressed/dg1.jpeg';
+import blackish from '../Assets/images/gallery/compressed/dg2.png';
+import branches from '../Assets/images/gallery/compressed/dg3.jpeg';
+import christmasTree from '../Assets/images/gallery/compressed/dg4.jpeg';
+import lighthouse from '../Assets/images/gallery/compressed/dg5.jpeg';
+import mountains from '../Assets/images/gallery/compressed/dg6.jpeg';
+
+
 
 const data = [
   {
@@ -23,11 +23,7 @@ const data = [
     alt: 'Christmas tree',
     src: christmasTree,
   },
-  {
-    id: 3,
-    alt: 'Hills with nothern lights',
-    src: nothernLights,
-  },
+  
   {
     id: 4,
     alt: 'Lighthouse',
@@ -45,10 +41,20 @@ const data = [
     src: beach,
   },
   {
-    id: 9,
-    alt: 'forest in autumn',
-    src: nature,
+    id: 7,
+    alt: 'Black bird',
+    src: blackish,
   },
+  {
+    id: 8,
+    alt: 'Branches in winter',
+    src: branches,
+  },
+  {
+    id: 9,
+    alt: 'Christmas tree',
+    src: christmasTree,
+  }
 ];
 
 export { data };

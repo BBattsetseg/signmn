@@ -1,4 +1,4 @@
-import { AiOutlineHome, AiOutlineUser, AiOutlinePhone, AiOutlineCamera } from 'react-icons/ai';
+import { AiOutlineHome, AiOutlineUser, AiOutlinePhone, AiOutlineCamera, AiOutlineLogin } from 'react-icons/ai';
 
 const data = [
   {
@@ -16,6 +16,10 @@ const data = [
   {
     title: 'Холбоо барих',
     Icon: AiOutlinePhone,
+  },
+  {
+    title: 'Нэвтрэх',
+    Icon: AiOutlineLogin,
   },
 ];
 

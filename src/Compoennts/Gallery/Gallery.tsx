@@ -14,7 +14,7 @@ const Gallery = ({ id }: Anchor) => {
   const { setIsActive } = useCursorContext();
   return (
     <Container id={id} variants={variants} initial="hidden" whileInView="visible">
-      <SectionTitle labelText="Gallery" />
+      <SectionTitle labelText="Хамтрагч байгууллагууд" />
       {data.map(({ src, id, alt }) => (
         <ImgFill
           variants={item}
