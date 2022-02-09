@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 import { useMobileContext } from '../../Contexts/MobileContext';
 import { heading, description } from '../../Data/header';
-import { Offset, Anchor } from '../../Types/types';
+import { Offset,Anchor } from '../../Types/types';
 
 import { HeaderContainer, H1, Description } from './Header.styles';
 

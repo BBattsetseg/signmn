@@ -13,7 +13,7 @@ const Footer = () => {
     <FooterContainer>
       <Author>
         <Link
-          href="https://github.com/maciejgarncarski"
+          href="https://github.com/BBattsetseg/signmn.git"
           target="_blank"
           rel="noopener noreferrer"
           data-testid="footer"

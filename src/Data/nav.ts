@@ -10,7 +10,11 @@ const data = [
     Icon: AiOutlineUser,
   },
   {
-    title: 'Хамтрагч байгууллагууд',
+    title: 'Хэрэглэгчийн хөтөч',
+    Icon: AiOutlineCamera,
+  },
+  {
+    title: 'Гарын үсэг захиалах',
     Icon: AiOutlineCamera,
   },
   {

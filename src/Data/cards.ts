@@ -18,7 +18,7 @@ export const data = [
     bg: 'green',
     border: 'blue',
     label: '3',
-    heading: 'CO-OP',
+    heading: '',
     description: 'Цаг алдалгүй мэдээлэл авахыг хүсвэл и-мэйл хаягаа бүртгүүлээрэй! ',
   },
 ];

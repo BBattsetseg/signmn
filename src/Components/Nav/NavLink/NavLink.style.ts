@@ -14,12 +14,13 @@ const LinkAnchor = styled.a`
   text-decoration: none;
   color: ${({ theme }) => theme.black};
   background: ${({ theme }) => theme.green};
-  border: 2px solid ${({ theme }) => theme.black};
-  box-shadow: -0.25em 0.25em 0 ${({ theme }) => theme.blue};
+  border: 1px solid ${({ theme }) => theme.black};
+  box-shadow: -0.2em 0.2em 0 ${({ theme }) => theme.blue};
   transform: translate(0.25em, -0.25em);
   transition: all ease-in-out 200ms;
   transition-property: transform, box-shadow;
-  padding: 0.5em 2em;
+  padding: 0.5em 1em;
+  font-size: 1rem;
 
   &:focus {
     box-shadow: 0em 0em transparent;
@@ -41,7 +42,7 @@ const LinkAnchor = styled.a`
   }
 
   @media screen and (min-width: ${({ theme }) => theme.bigScreen}) {
-    padding: 0.45em 1.75em;
+    padding: 0.45em 0.75em;
 
     & > svg {
       width: 1.5em;

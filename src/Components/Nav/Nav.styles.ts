@@ -34,7 +34,7 @@ const NavContainer = styled.nav`
 const List = styled.ul`
   list-style: none;
   display: flex;
-  @supports (gap: 10px) {
+  @supports (gap: 0.5rem) {
     gap: 3.5vw;
     @media screen and (min-width: ${({ theme }) => theme.bigScreen}) {
       gap: calc(2em + 2vw);

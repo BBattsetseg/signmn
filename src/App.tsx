@@ -6,27 +6,28 @@ import styled, { ThemeProvider } from 'styled-components';
 
 import { GlobalStyle } from './StyledComponents/GlobalStyle';
 import { Theme } from './StyledComponents/Theme';
-import { About } from './Compoennts/About/About';
-import { Cursor } from './Compoennts/Cursor/Cursor';
-import { Header } from './Compoennts/Header/Header';
-import { Nav } from './Compoennts/Nav/Nav';
-import { Separator } from './Compoennts/Separator/Separator';
+import { About } from './Components/About/About';
+import { Cursor } from './Components/Cursor/Cursor';
+import { Header } from './Components/Header/Header';
+import { Nav } from './Components/Nav/Nav';
+import { Separator } from './Components/Separator/Separator';
 import { CursorProvider } from './Contexts/CursorContext';
 import { useMobileContext } from './Contexts/MobileContext';
 import { useScrollPosition } from './Hooks/useScrollPosition';
+import { InputComponent } from './Components/GetDSC/InputComponent';
 
 const Footer = loadable(async () => {
-  const { Footer } = await import('./Compoennts/Footer/Footer');
+  const { Footer } = await import('./Components/Footer/Footer');
   return Footer;
 });
 
 const Contact = loadable(async () => {
-  const { Contact } = await import('./Compoennts/Contact/Contact');
+  const { Contact } = await import('./Components/Contact/Contact');
   return Contact;
 });
 
 const Gallery = loadable(async () => {
-  const { Gallery } = await import('./Compoennts/Gallery/Gallery');
+  const { Gallery } = await import('./Components/Gallery/Gallery');
   return Gallery;
 });
 
@@ -39,7 +40,7 @@ const Container = styled.div`
   font-size: clamp(0.7rem, 2vw, 1.1rem);
 `;
 
-const anchor = ['', 'about', 'gallery', 'contact'];
+const anchor = ['', 'about', 'gallery', '', 'contact'];
 
 const App = () => {
   const { isMobile, setIsMobile } = useMobileContext();
@@ -59,11 +60,12 @@ const App = () => {
         <Container>
           <Header offsetY={offsetY} />
           <Nav ids={anchor} offsetY={offsetY} />
+          <InputComponent/>
           <About id={anchor[1]} />
           <Separator />
           <Gallery id={anchor[2]} />
           <Separator />
-          <Contact id={anchor[3]} />
+          <Contact id={anchor[4]} />
           <Footer />
         </Container>
       </CursorProvider>

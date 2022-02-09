@@ -2,7 +2,6 @@ import { useEffect, useState, useRef } from 'react';
 
 import { data } from '../../Data/nav';
 import { AnchorArray, Offset } from '../../Types/types';
-
 import { NavContainer, List } from './Nav.styles';
 import { NavLink } from './NavLink/NavLink';
 
@@ -33,9 +32,9 @@ const Nav = ({ ids, offsetY }: NavTypes) => {
       <List>
         {data.map(({ title, Icon }, i) => {
           return (
-            <NavLink key={title} href={`#${ids[i]}`} title={title}>
-              <Icon />
-              {/* <p>{title}</p> */}
+            <NavLink key={title} href={`#${ids[i]}`} title={title} >
+              {/* <Icon /> */}
+              <p>{title}</p>
             </NavLink>
           );
         })}

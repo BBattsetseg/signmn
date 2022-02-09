@@ -3,6 +3,9 @@ import { ReactNode } from 'react';
 export type AnchorArray = {
   ids: string[];
 };
+export type Anchor = {
+  id?: string;
+};
 
 export type Multiply = {
   multiply: number;
