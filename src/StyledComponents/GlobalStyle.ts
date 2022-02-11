@@ -29,7 +29,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body{
-        background-color: ${({ theme }) => theme.yellow};
+        background-color: ${({ theme }) => theme.primary};
         min-height: 100vh;
         min-height: -webkit-fill-available;
         font-family: 'Roboto Slab', serif;

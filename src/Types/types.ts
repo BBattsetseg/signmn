@@ -18,3 +18,4 @@ export type Offset = {
 export type Children = {
   children: ReactNode;
 };
+export type Function = {};

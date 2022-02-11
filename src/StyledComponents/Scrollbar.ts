@@ -5,7 +5,7 @@ const ScrollBar = css`
     scrollbar-color: ${({ theme }) => theme.blue} ${({ theme }) => theme.darkYellow};
   }
   ::-webkit-scrollbar {
-    background: ${({ theme }) => theme.darkYellow};
+    background: ${({ theme }) => theme.primary};
   }
   ::-webkit-scrollbar-thumb {
     background-color: ${({ theme }) => theme.green};

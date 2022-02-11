@@ -34,6 +34,7 @@ const NavContainer = styled.nav`
 const List = styled.ul`
   list-style: none;
   display: flex;
+  cursor: pointer;
   @supports (gap: 0.5rem) {
     gap: 3.5vw;
     @media screen and (min-width: ${({ theme }) => theme.bigScreen}) {
