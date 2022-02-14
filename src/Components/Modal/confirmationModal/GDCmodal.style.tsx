@@ -9,6 +9,11 @@ export const Wrapper = styled.div`
     width: 40%;
     }
 `;
+export const ListDsc = styled.div`
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+`;
 
 export const ConfirmationButtons = styled.div`
   display: flex;
@@ -19,13 +24,4 @@ export const Message = styled.div`
   font-size: 0.9rem;
   margin-bottom: 10px;
   text-align: center;
-`;
-
-export const YesButton = styled.button`
-  width: 6rem;
-`;
-
-export const NoButton = styled.button`
-  width: 3rem;
-  margin-left: 10px;
 `;

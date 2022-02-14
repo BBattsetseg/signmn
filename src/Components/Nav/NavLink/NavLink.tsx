@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useCursorContext } from '../../../Contexts/CursorContext';
 
 import { Children } from '../../../Types/types';
@@ -16,7 +15,7 @@ const NavLink = ({ children, href, title, onClick }: Children & NavLinkTypes) =>
 
   return (
     <StyledLink onMouseOver={() => setIsActive(true)} onMouseLeave={() => setIsActive(false)}>
-      <LinkAnchor href={href} title={title} onClick={onClick}>
+      <LinkAnchor href={href} title={title} onClick={href == '#getsignature' ? onClick : undefined}>
         {children}
       </LinkAnchor>
     </StyledLink>

@@ -2,7 +2,9 @@ import { useEffect, useState, useRef } from 'react';
 
 import { data } from '../../Data/nav';
 import { AnchorArray, Offset } from '../../Types/types';
-import { ConfirmationModal } from '../Modal/confirmationModal/Confirmation-modal';
+import { LoginModal } from '../Login/Login';
+import { GDCModal } from '../Modal/confirmationModal/GDCmodal';
+// import { GDCModal } from '../Modal/confirmationModal/GDCmodal';
 import Modal from '../Modal/Modal';
 import { useModal } from '../Modal/useModal';
 import { NavContainer, List } from './Nav.styles';
@@ -40,12 +42,7 @@ const Nav = ({ ids, offsetY }: NavTypes) => {
             <NavLink key={title} href={`#${ids[i]}`} title={title} onClick={toggle}>
               {/* <Icon /> */}
               <p>{title}</p>
-              <Modal
-                isShown={isShown}
-                hide={toggle}
-                headerText="Та имэйл эсвэл утасны дугаараа оруулна уу."
-                modalContent={<ConfirmationModal />}
-              />
+              <Modal isShown={isShown} hide={toggle} headerText="" modalContent={<GDCModal />} />
             </NavLink>
           );
         })}

@@ -1,16 +1,11 @@
 import styled from 'styled-components';
 
 export const Input = styled.input`
-  padding: 0.5em 1rem;
-  margin: 0.5em;
-  color:  "palevioletred"};
-  background: papayawhip;
+  padding: 0.5rem;
+  margin: 1rem auto;
+  color: 'palevioletred';
   border: none;
-  width: 200px;
+  width: 100%;
   border-radius: 3px;
-  outline: none
+  outline: none;
 `;
-
-
-
-
