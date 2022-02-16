@@ -15,7 +15,13 @@ const NavLink = ({ children, href, title, onClick }: Children & NavLinkTypes) =>
 
   return (
     <StyledLink onMouseOver={() => setIsActive(true)} onMouseLeave={() => setIsActive(false)}>
-      <LinkAnchor href={href} title={title} onClick={href == '#getsignature' ? onClick : undefined}>
+      <LinkAnchor
+        href={href}
+        title={title}
+        onClick={
+          href == '#getsignature' ? onClick : undefined || href == '#login' ? onClick : undefined
+        }
+      >
         {children}
       </LinkAnchor>
     </StyledLink>

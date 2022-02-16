@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { FunctionComponent, ReactChild, ReactNode } from 'react';
 
 export type AnchorArray = {
   ids: string[];
@@ -16,6 +16,6 @@ export type Offset = {
 };
 
 export type Children = {
-  children: ReactNode;
+  children: ReactChild | ReactNode | FunctionComponent;
 };
 export type Function = {};

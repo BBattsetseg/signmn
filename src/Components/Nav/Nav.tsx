@@ -3,9 +3,7 @@ import { useEffect, useState, useRef } from 'react';
 import { data } from '../../Data/nav';
 import { AnchorArray, Offset } from '../../Types/types';
 import { LoginModal } from '../Login/Login';
-import { GDCModal } from '../Modal/confirmationModal/GDCmodal';
-// import { GDCModal } from '../Modal/confirmationModal/GDCmodal';
-import Modal from '../Modal/Modal';
+import { GDCModal } from '../../pages/GetDSC/GDCmodal';
 import { useModal } from '../Modal/useModal';
 import { NavContainer, List } from './Nav.styles';
 import { NavLink } from './NavLink/NavLink';
@@ -32,17 +30,19 @@ const Nav = ({ ids, offsetY }: NavTypes) => {
     offsetY >= navPosition ? setIsSticked(true) : setIsSticked(false);
   }, [navPosition, offsetY]);
 
-  const { isShown, toggle } = useModal();
-
   return (
     <NavContainer ref={navRef} className={isSticked ? 'sticked' : 'static'}>
       <List>
-        {data.map(({ title, Icon }, i) => {
+        {data.map(({ title }, i) => {
+          const { isShown, toggle } = useModal();
           return (
-            <NavLink key={title} href={`#${ids[i]}`} title={title} onClick={toggle}>
-              {/* <Icon /> */}
+            <NavLink href={`#${ids[i]}`} title={title} onClick={toggle} key={i}>
               <p>{title}</p>
-              <Modal isShown={isShown} hide={toggle} headerText="" modalContent={<GDCModal />} />
+              {ids[i] == 'getsignature' ? (
+                <GDCModal isShown={isShown} toggle={toggle} />
+              ) : (
+                ids[i] == 'login' && <LoginModal isShown={isShown} toggle={toggle} />
+              )}
             </NavLink>
           );
         })}

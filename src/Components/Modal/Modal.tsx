@@ -19,9 +19,13 @@ export interface ModalProps {
   headerText: string;
 }
 
+export type modalPropType = {
+  isShown: boolean;
+  toggle: () => void;
+};
 const Modal: FunctionComponent<ModalProps> = ({ isShown, hide, modalContent, headerText }) => {
-  const onKeyDown = (event: KeyboardEvent) => {
-    if (event.keyCode === 27 && isShown) {
+  const onKeyDown = (KeyboardEvent: { keyCode: number }) => {
+    if (KeyboardEvent.keyCode === 27 && isShown) {
       hide();
     }
   };
@@ -36,7 +40,7 @@ const Modal: FunctionComponent<ModalProps> = ({ isShown, hide, modalContent, hea
 
   const modal = (
     <React.Fragment>
-      <Backdrop onClick={hide} />
+      <Backdrop />
       <FocusLock>
         <Wrapper aria-modal aria-labelledby={headerText} tabIndex={-1} role="dialog">
           <StyledModal>
