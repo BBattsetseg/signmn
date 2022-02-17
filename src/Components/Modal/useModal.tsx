@@ -9,5 +9,6 @@ export const useModal = () => {
   return {
     isShown,
     toggle,
+    setIsShown,
   };
 };

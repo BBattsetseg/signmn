@@ -2,23 +2,19 @@ import { InputEmail, InputPassport } from '../Input/Input';
 import Modal, { modalPropType } from '../Modal/Modal';
 import FocusLock from 'react-focus-lock';
 import { LoginUl } from './Login.style';
+import { Button } from '../Button/Button';
 
 export const LoginModal = (props: modalPropType) => {
   const { isShown, toggle } = props;
   const LoginM = () => {
     return (
-      <LoginUl>
+      <LoginUl onClick={() => console.log('inside daragdlaa')}>
         <FocusLock>
           <p style={{ color: '#333', fontSize: '34px', textAlign: 'center' }}>Нэвтрэх</p>
           <InputEmail />
 
           <InputPassport />
-          <button
-            style={{ padding: '8px', marginTop: '5px' }}
-            onClick={() => alert('Өөрийн нууц үгээрээ нэвтэрч орно уу.')}
-          >
-            Нэвтрэх
-          </button>
+          <Button onClick={() => alert('Өөрийн нууц үгээрээ нэвтэрч орно уу.')}>Нэвтрэх</Button>
         </FocusLock>
       </LoginUl>
     );

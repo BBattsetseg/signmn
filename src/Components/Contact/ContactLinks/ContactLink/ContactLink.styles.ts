@@ -17,7 +17,7 @@ const Link = styled.a`
 
   &:hover,
   &:focus {
-    transform: scale(1.05);
+    transform: scale(1);
     outline: 2px solid ${({ theme }) => theme.black};
   }
 
@@ -30,8 +30,8 @@ const Link = styled.a`
     &:hover {
       border-color: ${({ theme }) => theme.black};
       background-color: ${({ theme }) => theme.darkYellow};
-      box-shadow: -0.5em 0.5em ${({ theme }) => theme.black};
-      transform: translate(0.5em, -0.5em);
+      box-shadow: -0.3em 0.3em ${({ theme }) => theme.black};
+      transform: translate(0.3em, -0.3em);
     }
     &:focus {
       transform: scale(1);

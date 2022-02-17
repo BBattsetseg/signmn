@@ -30,5 +30,4 @@ const Container = styled.section`
     grid-column: 2;
   }
 `;
-
 export { Container };

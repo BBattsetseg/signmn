@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from 'react';
+import React, { FunctionComponent } from 'react';
 import FocusLock from 'react-focus-lock';
 import ReactDOM from 'react-dom';
 
@@ -24,26 +24,12 @@ export type modalPropType = {
   toggle: () => void;
 };
 const Modal: FunctionComponent<ModalProps> = ({ isShown, hide, modalContent, headerText }) => {
-  const onKeyDown = (KeyboardEvent: { keyCode: number }) => {
-    if (KeyboardEvent.keyCode === 27 && isShown) {
-      hide();
-    }
-  };
-
-  useEffect(() => {
-    isShown ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset');
-    document.addEventListener('keydown', onKeyDown, false);
-    return () => {
-      document.removeEventListener('keydown', onKeyDown, false);
-    };
-  }, [isShown]);
-
   const modal = (
     <React.Fragment>
       <Backdrop />
       <FocusLock>
         <Wrapper aria-modal aria-labelledby={headerText} tabIndex={-1} role="dialog">
-          <StyledModal>
+          <StyledModal onClick={(e) => e.stopPropagation()}>
             <Header>
               <HeaderText>{headerText}</HeaderText>
               <CloseButton onClick={hide}>X</CloseButton>

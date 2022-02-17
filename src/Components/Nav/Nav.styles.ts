@@ -17,7 +17,7 @@ const NavContainer = styled.nav`
   align-items: center;
   background: ${({ theme }) => theme.darkYellow};
   box-shadow: 0px 0px 20px ${({ theme }) => theme.darkYellow};
-  z-index: 1001;
+  z-index: 501;
   position: absolute;
   left: 0;
   &.sticked {
