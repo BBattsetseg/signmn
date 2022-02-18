@@ -11,9 +11,9 @@ export const LoginModal = (props: modalPropType) => {
       <LoginUl onClick={() => console.log('inside daragdlaa')}>
         <FocusLock>
           <p style={{ color: '#333', fontSize: '34px', textAlign: 'center' }}>Нэвтрэх</p>
-          <InputEmail />
+          <InputEmail name={''} label={''} />
 
-          <InputPassport />
+          <InputPassport name={''} label={''} />
           <Button onClick={() => alert('Өөрийн нууц үгээрээ нэвтэрч орно уу.')}>Нэвтрэх</Button>
         </FocusLock>
       </LoginUl>

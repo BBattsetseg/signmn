@@ -1,17 +1,32 @@
+import React, { FC, InputHTMLAttributes } from 'react';
 import { InputSyle } from './Input.styles';
 
-const InputEmail = () => {
-  return <InputSyle type="email" placeholder="Имэйл хаягаа оруулна уу." />;
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  name: string;
+  label: string;
+}
+
+const InputEmail: FC<InputProps> = ({ name, label, ...rest }) => {
+  return <InputSyle type="email" placeholder="Имэйл хаягаа оруулна уу." id={name} {...rest} />;
 };
-const Input = () => {
-  return <InputSyle type="text" placeholder="Имэйл эсвэл утасны дугаар оруулна уу." />;
+const Input: FC<InputProps> = ({ name, label, ...rest }) => {
+  return (
+    <InputSyle
+      type="text"
+      placeholder="Имэйл эсвэл утасны дугаар оруулна уу."
+      id={name}
+      {...rest}
+    />
+  );
 };
 
-const InputPhone = () => {
-  return <InputSyle type="phoneNumber" placeholder="Утасны дугаараа оруулна уу." />;
+const InputPhone: FC<InputProps> = ({ name, label, ...rest }) => {
+  return (
+    <InputSyle type="phoneNumber" placeholder="Утасны дугаараа оруулна уу." id={name} {...rest} />
+  );
 };
-const InputPassport = () => {
-  return <InputSyle type="passport" placeholder="Нууц үгээ оруулна уу" />;
+const InputPassport: FC<InputProps> = ({ name, label, ...rest }) => {
+  return <InputSyle type="passport" placeholder="Нууц үгээ оруулна уу" id={name} {...rest} />;
 };
 
 export { InputEmail, InputPhone, InputPassport, Input };
