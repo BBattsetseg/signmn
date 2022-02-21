@@ -10,28 +10,39 @@ import { useEffect } from 'react';
 export const GDCModal = (props: modalPropType) => {
   const { isShown, toggle } = props;
   const Modalds = () => {
-    const [result, setResult] = useState('');
     const [query, setQuery] = useState('');
+
     const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
       const enterName = e.target.value;
       setQuery(enterName);
     };
 
     const search = () => {
+      let result = '';
       const foundItems = datas.filter((item) =>
         item.email.toLowerCase().includes(query.toLowerCase()),
       );
 
-      if (foundItems.length == 0) {
-        console.log('бүртгэлд байхгүй');
-        setResult(' ');
+      if (foundItems.length > 0) {
+        result = foundItems[0].email;
       } else {
-        setResult((prevState) => (prevState = foundItems[0].email));
+        console.log('бүртгэлд байхгүй');
+        result = ' ';
+      }
+
+      if (result == ' ' || result.length == 0) {
+        alert('Шинээр бүртэл үүсгэх хэсэг рүү');
+      } else {
+        alert('Та манай системд бүртгэлтэй байна. Нэвтрэх хэсгээр орно уу');
       }
 
       console.log(foundItems);
       console.log(result);
     };
+
+    useEffect(() => {
+      search;
+    }, [query]);
 
     return (
       <ListDsc>
@@ -44,11 +55,6 @@ export const GDCModal = (props: modalPropType) => {
             <Button
               onClick={() => {
                 search();
-                if (result == ' ' || result.length == 0) {
-                  alert('Шинээр бүртэл үүсгэх хэсэг рүү');
-                } else {
-                  alert('Та манай системд бүртгэлтэй байна. Нэвтрэх хэсгээр орно уу');
-                }
               }}
             >
               Илгээх
