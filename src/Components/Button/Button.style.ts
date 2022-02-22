@@ -6,9 +6,9 @@ const ButtonStyle = styled.button`
   width: 100%;
   border: none;
   color: ${({ theme }) => theme.black};
-  margin: auto;
+  margin: 1rem auto;
   font-size: 1rem;
-  padding: 0.25em 1em;
+  padding: 0.5em 1em;
   &:hover {
     transform: translate(0, 0);
     box-shadow: none;

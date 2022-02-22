@@ -1,4 +1,4 @@
-import React, { FC, InputHTMLAttributes } from 'react';
+import { FC, InputHTMLAttributes } from 'react';
 import { InputSyle } from './Input.styles';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -6,9 +6,6 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
 }
 
-const InputEmail: FC<InputProps> = ({ name, label, ...rest }) => {
-  return <InputSyle type="email" placeholder="Имэйл хаягаа оруулна уу." id={name} {...rest} />;
-};
 const Input: FC<InputProps> = ({ name, label, ...rest }) => {
   return (
     <InputSyle
@@ -19,12 +16,16 @@ const Input: FC<InputProps> = ({ name, label, ...rest }) => {
     />
   );
 };
+const InputEmail: FC<InputProps> = ({ name, label, ...rest }) => {
+  return <InputSyle type="email" placeholder="Имэйл хаягаа оруулна уу." id={name} {...rest} />;
+};
 
 const InputPhone: FC<InputProps> = ({ name, label, ...rest }) => {
   return (
     <InputSyle type="phoneNumber" placeholder="Утасны дугаараа оруулна уу." id={name} {...rest} />
   );
 };
+
 const InputPassport: FC<InputProps> = ({ name, label, ...rest }) => {
   return <InputSyle type="passport" placeholder="Нууц үгээ оруулна уу" id={name} {...rest} />;
 };

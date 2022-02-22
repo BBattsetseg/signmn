@@ -23,7 +23,7 @@ export const H1 = styled.h1`
   position: relative;
   z-index: 1;
   margin-top: 2em;
-  color: ${({ theme }) => theme.black};
+  color: ${({ theme }) => theme.darkYellow};
   line-height: 1.2;
   font-weight: 700;
   font-size: 4em;
@@ -34,7 +34,7 @@ export const H1 = styled.h1`
     padding: 0.05em 0.45em;
     margin-top: 0;
     box-shadow: -0.25em 0.25em ${({ theme }) => theme.blue};
-    background-color: ${({ theme }) => theme.green};
+    // background-color: ${({ theme }) => theme.green};
     border: 2px solid ${({ theme }) => theme.black};
   }
 `;

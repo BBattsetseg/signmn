@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Link = styled.a`
-  color: ${({ theme }) => theme.black};
+  color: ${({ theme }) => theme.darkYellow};
   display: flex;
   align-items: center;
   justify-content: center;

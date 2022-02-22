@@ -1,7 +1,7 @@
 import { InputEmail, InputPassport } from '../Input/Input';
 import Modal, { modalPropType } from '../Modal/Modal';
 import FocusLock from 'react-focus-lock';
-import { LoginUl } from './Login.style';
+import { LoginUl } from './LoginModal.style';
 import { Button } from '../Button/Button';
 
 export const LoginModal = (props: modalPropType) => {
@@ -12,9 +12,14 @@ export const LoginModal = (props: modalPropType) => {
         <FocusLock>
           <p style={{ color: '#333', fontSize: '34px', textAlign: 'center' }}>Нэвтрэх</p>
           <InputEmail name={''} label={''} />
-
           <InputPassport name={''} label={''} />
-          <Button onClick={() => alert('Өөрийн нууц үгээрээ нэвтэрч орно уу.')}>Нэвтрэх</Button>
+          <Button
+            onClick={() => {
+              alert('Өөрийн нууц үгээрээ нэвтэрч орно уу.'), toggle();
+            }}
+          >
+            Нэвтрэх
+          </Button>
         </FocusLock>
       </LoginUl>
     );

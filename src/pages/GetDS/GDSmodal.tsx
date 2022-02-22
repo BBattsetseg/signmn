@@ -1,18 +1,23 @@
 import { ChangeEvent, useState } from 'react';
 import { Input } from '../../Components/Input/Input';
 import Modal, { modalPropType } from '../../Components/Modal/Modal';
-import { ListDsc } from './GDCmodal.style';
+import { ListDsc } from './GDSmodal.style';
 import FocusLock from 'react-focus-lock';
 import { Button } from '../../Components/Button/Button';
 import { datas } from '../../Data/users';
-import { useEffect } from 'react';
+import { GSButtonsModal } from '../GetSignature/GSButtonsModal';
+import ReactDOM from 'react-dom';
+import { LoginModal } from '../../Components/Login/LoginModal';
 
 export const GDCModal = (props: modalPropType) => {
   const { isShown, toggle } = props;
+
   const Modalds = () => {
     const [query, setQuery] = useState('');
+    const [isBtns, setIsBtns] = useState<boolean>(false);
 
     const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+      e.preventDefault();
       const enterName = e.target.value;
       setQuery(enterName);
     };
@@ -31,18 +36,12 @@ export const GDCModal = (props: modalPropType) => {
       }
 
       if (result == ' ' || result.length == 0) {
-        alert('Шинээр бүртэл үүсгэх хэсэг рүү');
+        alert('Шинээр тоон гарын үсэг захиалах');
+        return <GSButtonsModal isShown={isBtns} toggle={() => setIsBtns(!isBtns)} />;
       } else {
         alert('Та манай системд бүртгэлтэй байна. Нэвтрэх хэсгээр орно уу');
       }
-
-      console.log(foundItems);
-      console.log(result);
     };
-
-    useEffect(() => {
-      search;
-    }, [query]);
 
     return (
       <ListDsc>
@@ -55,6 +54,7 @@ export const GDCModal = (props: modalPropType) => {
             <Button
               onClick={() => {
                 search();
+                toggle();
               }}
             >
               Илгээх
