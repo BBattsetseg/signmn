@@ -27,7 +27,7 @@ const Contact = loadable(async () => {
 });
 
 const Gallery = loadable(async () => {
-  const { Gallery } = await import('./Components/Gallery/Gallery');
+  const { Gallery } = await import('./Components/CustomerHelp/Gallery');
   return Gallery;
 });
 

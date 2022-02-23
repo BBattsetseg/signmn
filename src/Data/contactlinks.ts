@@ -4,7 +4,7 @@ const data = [
   {
     href: 'tel:+48000000000',
     title: 'Утасны дугаар',
-    label: '+976 77887788',
+    label: '+976 9999 9999',
     Icon: AiOutlinePhone,
     isLink: true,
   },
@@ -18,7 +18,7 @@ const data = [
   {
     href: '#contact',
     title: 'Цагийн хуваарь',
-    label: 'Даваа - Баасан:  8:00am-16:00pm',
+    label: 'Даваа - Баасан   /9am - 18pm/',
     Icon: AiOutlineClockCircle,
     isLink: false,
   },

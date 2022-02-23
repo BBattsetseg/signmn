@@ -11,18 +11,8 @@ import {
   Content,
   Backdrop,
 } from './Modal.style';
+import { ModalProps } from '../../Types/types';
 
-export interface ModalProps {
-  isShown: boolean;
-  hide: () => void;
-  modalContent: JSX.Element;
-  headerText: string;
-}
-
-export type modalPropType = {
-  isShown: boolean;
-  toggle: () => void;
-};
 const Modal: FunctionComponent<ModalProps> = ({ isShown, hide, modalContent, headerText }) => {
   const modal = (
     <React.Fragment>

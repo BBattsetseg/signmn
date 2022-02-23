@@ -29,7 +29,7 @@ const Link = styled.a`
     border: 2px solid transparent;
     &:hover {
       border-color: ${({ theme }) => theme.black};
-      background-color: ${({ theme }) => theme.darkYellow};
+      background-color: ${({ theme }) => theme.blue};
       box-shadow: -0.3em 0.3em ${({ theme }) => theme.black};
       transform: translate(0.3em, -0.3em);
     }

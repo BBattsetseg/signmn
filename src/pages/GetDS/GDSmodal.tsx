@@ -1,20 +1,20 @@
-import { ChangeEvent, useState } from 'react';
-import { Input } from '../../Components/Input/Input';
-import Modal, { modalPropType } from '../../Components/Modal/Modal';
+import { ChangeEvent, useEffect, useState } from 'react';
+import { InputPhone } from '../../Components/Input/Input';
+import Modal from '../../Components/Modal/Modal';
 import { ListDsc } from './GDSmodal.style';
 import FocusLock from 'react-focus-lock';
 import { Button } from '../../Components/Button/Button';
 import { datas } from '../../Data/users';
-import { GSButtonsModal } from '../GetSignature/GSButtonsModal';
-import ReactDOM from 'react-dom';
-import { LoginModal } from '../../Components/Login/LoginModal';
+import { modalPropType } from '../../Types/types';
+import { GSButtons } from '../GetSignature/GSButtons';
+import { LoginComponent } from '../../Components/Login/LoginComponent';
 
 export const GDCModal = (props: modalPropType) => {
   const { isShown, toggle } = props;
+  const [currentComponent, setCurrentComponent] = useState(0);
 
   const Modalds = () => {
     const [query, setQuery] = useState('');
-    const [isBtns, setIsBtns] = useState<boolean>(false);
 
     const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
       e.preventDefault();
@@ -24,22 +24,21 @@ export const GDCModal = (props: modalPropType) => {
 
     const search = () => {
       let result = '';
-      const foundItems = datas.filter((item) =>
-        item.email.toLowerCase().includes(query.toLowerCase()),
-      );
+      const foundItems = datas.filter((item) => item.phone.toLowerCase() === query.toLowerCase());
 
       if (foundItems.length > 0) {
-        result = foundItems[0].email;
+        result = foundItems[0].phone;
       } else {
         console.log('бүртгэлд байхгүй');
         result = ' ';
       }
 
       if (result == ' ' || result.length == 0) {
-        alert('Шинээр тоон гарын үсэг захиалах');
-        return <GSButtonsModal isShown={isBtns} toggle={() => setIsBtns(!isBtns)} />;
+        setCurrentComponent(1);
+        return;
       } else {
         alert('Та манай системд бүртгэлтэй байна. Нэвтрэх хэсгээр орно уу');
+        setCurrentComponent(2);
       }
     };
 
@@ -50,19 +49,29 @@ export const GDCModal = (props: modalPropType) => {
             Системд бүртгэгдсэн эсэхээ шалгах
           </p>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <Input name={'name'} label={'name'} onChange={inputHandler} value={query} />
-            <Button
-              onClick={() => {
-                search();
-                toggle();
-              }}
-            >
-              Илгээх
-            </Button>
+            <InputPhone name={'name'} label={'name'} onChange={inputHandler} value={query} />
+            <Button onClick={search}>Илгээх</Button>
           </div>
         </FocusLock>
       </ListDsc>
     );
   };
-  return <Modal isShown={isShown} hide={toggle} headerText="" modalContent={<Modalds />} />;
+
+  useEffect(() => {
+    setCurrentComponent(0);
+  }, [isShown]);
+  return (
+    <Modal
+      isShown={isShown}
+      hide={toggle}
+      headerText=""
+      modalContent={
+        <>
+          {currentComponent === 0 && <Modalds />}
+          {currentComponent === 1 && <GSButtons />}
+          {currentComponent === 2 && <LoginComponent />}
+        </>
+      }
+    />
+  );
 };

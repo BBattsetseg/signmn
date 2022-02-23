@@ -19,3 +19,15 @@ export type Children = {
   children: ReactChild | ReactNode | FunctionComponent;
 };
 export type Function = {};
+
+export interface ModalProps {
+  isShown: boolean;
+  hide: () => void;
+  modalContent: JSX.Element;
+  headerText: string;
+}
+
+export type modalPropType = {
+  isShown: boolean;
+  toggle: () => void;
+};
