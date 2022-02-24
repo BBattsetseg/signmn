@@ -8,6 +8,7 @@ import { datas } from '../../Data/users';
 import { modalPropType } from '../../Types/types';
 import { GSButtons } from './GSButtons';
 import { LoginComponent } from '../../Components/Login/LoginComponent';
+import { LoginModal } from '../../Components/Login/LoginModal';
 
 export const GDCModal = (props: modalPropType) => {
   const { isShown, toggle } = props;
@@ -61,17 +62,19 @@ export const GDCModal = (props: modalPropType) => {
     setCurrentComponent(0);
   }, [isShown]);
   return (
-    <Modal
-      isShown={isShown}
-      hide={toggle}
-      headerText=""
-      modalContent={
-        <>
-          {currentComponent === 0 && <Modalds />}
-          {currentComponent === 1 && <GSButtons />}
-          {currentComponent === 2 && <LoginComponent />}
-        </>
-      }
-    />
+    <>
+      {currentComponent === 2 && <LoginModal isShown={isShown} toggle={toggle} />}
+      <Modal
+        isShown={isShown}
+        hide={toggle}
+        headerText=""
+        modalContent={
+          <>
+            {currentComponent === 0 && <Modalds />}
+            {currentComponent === 1 && <GSButtons />}
+          </>
+        }
+      />
+    </>
   );
 };
