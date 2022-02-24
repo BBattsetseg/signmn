@@ -9,13 +9,29 @@ export const LoginComponent = () => {
   const [phoneInput, setPhoneInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
 
+  console.log(passwordInput);
   const login = () => {
     console.log('login function duudagdlaa');
-    let result = [];
-    const foundPhone = datas.filter((item) => item.phone.toLowerCase() === phoneInput);
-    const foundPassword = datas.filter((item) => item.password.toLowerCase() === passwordInput);
-    result = foundPhone && foundPassword;
-    console.log(result);
+
+    const foundPhone = datas.filter(
+      (item) => item.phone.toLowerCase() === phoneInput.toLowerCase(),
+    );
+    const foundPassword = datas.filter(
+      (item) => item.password.toLowerCase() === passwordInput.toLowerCase(),
+    );
+    try {
+      let found = foundPassword.filter((item) => {
+        if (item.phone == foundPhone[0].phone) return item;
+      });
+      if (foundPhone[0].phone == found[0].phone && foundPhone[0].password == found[0].password) {
+        return alert('Амжилттай нэвтэрлээ');
+      } else {
+        alert('Таны нууц үг эсвэл нэвтрэх нэр буруу байна.');
+      }
+    } catch (e) {
+      console.log(e);
+      alert('Таны нууц үг эсвэл нэвтрэх нэр буруу байна.');
+    }
   };
 
   return (
@@ -31,8 +47,8 @@ export const LoginComponent = () => {
           }}
         />
         <InputPassport
-          name={''}
-          label={''}
+          name={'text'}
+          label={'text'}
           value={passwordInput}
           onChange={(e) => {
             setPasswordInput(e.target.value);
@@ -41,7 +57,6 @@ export const LoginComponent = () => {
         <Button
           onClick={() => {
             login();
-            alert('Нууц үг эсвэл утасны дугаар буруу байна.');
           }}
         >
           Нэвтрэх

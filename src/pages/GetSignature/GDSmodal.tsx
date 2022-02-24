@@ -6,7 +6,7 @@ import FocusLock from 'react-focus-lock';
 import { Button } from '../../Components/Button/Button';
 import { datas } from '../../Data/users';
 import { modalPropType } from '../../Types/types';
-import { GSButtons } from '../GetSignature/GSButtons';
+import { GSButtons } from './GSButtons';
 import { LoginComponent } from '../../Components/Login/LoginComponent';
 
 export const GDCModal = (props: modalPropType) => {
@@ -46,10 +46,10 @@ export const GDCModal = (props: modalPropType) => {
       <ListDsc>
         <FocusLock>
           <p style={{ color: '#333', fontSize: '1.5rem', textAlign: 'center' }}>
-            Системд бүртгэгдсэн эсэхээ шалгах
+            Гарын үсэг захиалах
           </p>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <InputPhone name={'name'} label={'name'} onChange={inputHandler} value={query} />
+            <InputPhone onChange={inputHandler} value={query} name={'test'} label={'test'} />
             <Button onClick={search}>Илгээх</Button>
           </div>
         </FocusLock>

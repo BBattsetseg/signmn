@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from 'react';
 import { data } from '../../Data/nav';
 import { AnchorArray, Offset } from '../../Types/types';
 import { LoginModal } from '../Login/LoginModal';
-import { GDCModal } from '../../pages/GetDS/GDSmodal';
+import { GDCModal } from '../../pages/GetSignature/GDSmodal';
 import { useModal } from '../Modal/useModal';
 import { NavContainer, List } from './Nav.styles';
 import { NavLink } from './NavLink/NavLink';
