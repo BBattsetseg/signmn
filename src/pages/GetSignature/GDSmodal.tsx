@@ -7,7 +7,7 @@ import { Button } from '../../Components/Button/Button';
 import { datas } from '../../Data/users';
 import { modalPropType } from '../../Types/types';
 import { GSButtons } from './GSButtons';
-import { LoginComponent } from '../../Components/Login/LoginComponent';
+
 import { LoginModal } from '../../Components/Login/LoginModal';
 
 export const GDCModal = (props: modalPropType) => {
@@ -71,7 +71,7 @@ export const GDCModal = (props: modalPropType) => {
         modalContent={
           <>
             {currentComponent === 0 && <Modalds />}
-            {currentComponent === 1 && <GSButtons />}
+            {currentComponent === 1 && <GSButtons isShown={false} toggle={toggle} />}
           </>
         }
       />

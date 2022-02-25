@@ -4,7 +4,9 @@ import { useState, useEffect } from 'react';
 
 import { useMobileContext } from '../../Contexts/MobileContext';
 import { heading, description } from '../../Data/header';
+import { Theme } from '../../StyledComponents/Theme';
 import { Offset, Anchor } from '../../Types/types';
+import { Button } from '../Button/Button';
 
 import { HeaderContainer, H1, Description } from './Header.styles';
 
@@ -31,6 +33,10 @@ const Header = ({ id, offsetY }: Header) => {
 
   const [multiply, setMultiply] = useState(0);
 
+  const toMysignature = () => {
+    console.log('hello my signaure');
+  };
+
   useEffect(() => {
     if (isMobile && !usesReducedMotion) {
       setMultiply(Math.floor(offsetY * 0.2));
@@ -44,6 +50,7 @@ const Header = ({ id, offsetY }: Header) => {
       <H1 style={{ transform: `translate3d(0, ${multiply}px, 0)` }}>{heading}</H1>
       <Description style={{ transform: `translate3d(0, ${multiply}px, 0)` }}>
         {description}
+        <Button onClick={toMysignature}>Миний гарын үсэг</Button>
       </Description>
       <Triangle multiply={multiply} />
       <Rectangle multiply={multiply} />

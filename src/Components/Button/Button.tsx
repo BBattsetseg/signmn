@@ -5,6 +5,10 @@ type BtnType = {
   onClick: () => void;
 };
 
-export const Button = ({ children, onClick }: Children & BtnType) => {
-  return <ButtonStyle onClick={onClick}>{children}</ButtonStyle>;
+export const Button = ({ children, onClick, ...rest }: Children & BtnType) => {
+  return (
+    <ButtonStyle onClick={onClick} {...rest}>
+      {children}
+    </ButtonStyle>
+  );
 };

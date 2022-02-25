@@ -8,6 +8,7 @@ import { InputPassport, InputPhone } from '../Input/Input';
 
 import { datas } from '../../Data/users';
 import { PaymentComponent } from '../Payment/PaymentComponent';
+import { MySignature } from '../../pages/MySignature/MySignature';
 
 export const LoginModal = (props: modalPropType) => {
   const { isShown, toggle } = props;
@@ -17,7 +18,6 @@ export const LoginModal = (props: modalPropType) => {
     const [phoneInput, setPhoneInput] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
 
-    console.log(passwordInput);
     const login = () => {
       console.log('login function duudagdlaa');
 
@@ -32,8 +32,13 @@ export const LoginModal = (props: modalPropType) => {
           if (item.phone == foundPhone[0].phone) return item;
         });
         if (foundPhone[0].phone == found[0].phone && foundPhone[0].password == found[0].password) {
-          alert('Амжилттай нэвтэрлээ');
-          setCurrentResult(1);
+          // alert('Амжилттай нэвтэрлээ');
+          if (foundPhone[0].signature) {
+            alert('та "МИНИЙ ГАРЫН ҮСЭГ" хэсэг рүү өөрийн пин кодоороо нэвтэрч орно уу');
+            setCurrentResult(2);
+          } else {
+            setCurrentResult(1);
+          }
         } else {
           alert('Таны нууц үг эсвэл нэвтрэх нэр буруу байна.');
         }
@@ -77,6 +82,7 @@ export const LoginModal = (props: modalPropType) => {
   useEffect(() => {
     setCurrentResult(0);
   }, [isShown]);
+
   return (
     <Modal
       isShown={isShown}
@@ -86,6 +92,7 @@ export const LoginModal = (props: modalPropType) => {
         <>
           {currenResult === 0 && <LoginComponent />}
           {currenResult === 1 && <PaymentComponent />}
+          {currenResult === 2 && <MySignature />}
         </>
       }
     />

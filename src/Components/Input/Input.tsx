@@ -7,15 +7,9 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Input: FC<InputProps> = ({ name, label, ...rest }) => {
-  return (
-    <InputStyle
-      type="text"
-      placeholder="Имэйл эсвэл утасны дугаар оруулна уу."
-      id={name}
-      {...rest}
-    />
-  );
+  return <InputStyle type="text" id={name} {...rest} />;
 };
+
 const InputEmail: FC<InputProps> = () => {
   return <InputEmailStyle placeholder="Имэйл хаягаа оруулна уу." required />;
 };
