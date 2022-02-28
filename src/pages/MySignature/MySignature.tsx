@@ -1,10 +1,7 @@
-import { H1 } from '../../Components/Header/Header.styles';
-import { ContainerMS } from './MySignature.style';
+import { modalPropType } from '../../Types/types';
+import { MySignatureModal } from './MySignatureModal';
 
-export const MySignature = () => {
-  return (
-    <ContainerMS>
-      <H1>This is MySignature page</H1>
-    </ContainerMS>
-  );
+export const MySignature = (props: modalPropType) => {
+  const { isShown, toggle } = props;
+  return <MySignatureModal isShown={isShown} toggle={toggle} />;
 };

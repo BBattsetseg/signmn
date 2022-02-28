@@ -36,7 +36,7 @@ const List = styled.ul`
   display: flex;
   cursor: pointer;
   @supports (gap: 0.5rem) {
-    gap: 3.5vw;
+    gap: 2vw;
     @media screen and (min-width: ${({ theme }) => theme.bigScreen}) {
       gap: calc(2em + 2vw);
     }

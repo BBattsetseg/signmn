@@ -19,7 +19,13 @@ const NavLink = ({ children, href, title, onClick }: Children & NavLinkTypes) =>
         href={href}
         title={title}
         onClick={
-          href == '#getsignature' ? onClick : undefined || href == '#login' ? onClick : undefined
+          href == '#getsignature'
+            ? onClick
+            : undefined || href == '#login'
+            ? onClick
+            : undefined || href == '#mysignature'
+            ? onClick
+            : undefined
         }
       >
         {children}

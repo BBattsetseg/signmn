@@ -1,20 +1,17 @@
-import Modal from '../Modal/Modal';
 import { modalPropType } from '../../Types/types';
 import { useEffect, useState } from 'react';
-import { LoginUl } from './LoginModal.style';
 import FocusLock from 'react-focus-lock';
-import { Button } from '../Button/Button';
-import { InputPassport, InputPhone } from '../Input/Input';
-
 import { datas } from '../../Data/users';
-import { PaymentComponent } from '../Payment/PaymentComponent';
-import { MySignature } from '../../pages/MySignature/MySignature';
+import { LoginUl } from '../../Components/Login/LoginModal.style';
+import { InputPassport, InputPhone } from '../../Components/Input/Input';
+import { Button } from '../../Components/Button/Button';
+import Modal from '../../Components/Modal/Modal';
 
-export const LoginModal = (props: modalPropType) => {
+export const MySignatureModal = (props: modalPropType) => {
   const { isShown, toggle } = props;
   const [currenResult, setCurrentResult] = useState(0);
 
-  const LoginComponent = () => {
+  const LoginSComponent = () => {
     const [phoneInput, setPhoneInput] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
 
@@ -51,7 +48,9 @@ export const LoginModal = (props: modalPropType) => {
     return (
       <LoginUl onClick={() => console.log('inside daragdlaa')}>
         <FocusLock>
-          <p style={{ color: '#333', fontSize: '34px', textAlign: 'center' }}>Нэвтрэх</p>
+          <p style={{ color: '#333', fontSize: '34px', textAlign: 'center' }}>
+            Миний гарын үсэг-рүү нэвтрэх
+          </p>
           <InputPhone
             name={''}
             label={''}
@@ -83,22 +82,5 @@ export const LoginModal = (props: modalPropType) => {
     setCurrentResult(0);
   }, [isShown]);
 
-  return (
-    <>
-      {
-        <Modal
-          isShown={isShown}
-          hide={toggle}
-          headerText=""
-          modalContent={
-            <>
-              {currenResult === 0 && <LoginComponent />}
-              {currenResult === 1 && <PaymentComponent />}
-            </>
-          }
-        />
-      }
-      {currenResult === 2 && <MySignature isShown={isShown} toggle={toggle} />}
-    </>
-  );
+  return <Modal isShown={isShown} hide={toggle} headerText="" modalContent={<LoginSComponent />} />;
 };

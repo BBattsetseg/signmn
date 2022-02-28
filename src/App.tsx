@@ -40,7 +40,7 @@ const Container = styled.div`
   font-size: clamp(0.7rem, 2vw, 1.1rem);
 `;
 
-const anchor = ['', 'about', 'gallery', 'getsignature', 'contact', 'login'];
+const anchor = ['', 'about', 'gallery', 'getsignature', 'contact', 'login', 'mysignature'];
 
 const App = () => {
   const { isMobile, setIsMobile } = useMobileContext();

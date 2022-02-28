@@ -7,6 +7,7 @@ import { GDCModal } from '../../pages/GetSignature/GDSmodal';
 import { useModal } from '../Modal/useModal';
 import { NavContainer, List } from './Nav.styles';
 import { NavLink } from './NavLink/NavLink';
+import { MySignatureModal } from '../../pages/MySignature/MySignatureModal';
 
 type NavTypes = AnchorArray & Offset;
 
@@ -38,11 +39,9 @@ const Nav = ({ ids, offsetY }: NavTypes) => {
           return (
             <NavLink href={`#${ids[i]}`} title={title} onClick={toggle} key={i}>
               <p>{title}</p>
-              {ids[i] == 'getsignature' ? (
-                <GDCModal isShown={isShown} toggle={toggle} />
-              ) : (
-                ids[i] == 'login' && <LoginModal isShown={isShown} toggle={toggle} />
-              )}
+              {ids[i] == 'getsignature' && <GDCModal isShown={isShown} toggle={toggle} />}
+              {ids[i] == 'login' && <LoginModal isShown={isShown} toggle={toggle} />}
+              {ids[i] == 'mysignature' && <MySignatureModal isShown={isShown} toggle={toggle} />}
             </NavLink>
           );
         })}

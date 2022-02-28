@@ -1,4 +1,10 @@
-import { AiOutlineHome, AiOutlineUser, AiOutlinePhone, AiOutlineCamera, AiOutlineLogin } from 'react-icons/ai';
+import {
+  AiOutlineHome,
+  AiOutlineUser,
+  AiOutlinePhone,
+  AiOutlineCamera,
+  AiOutlineLogin,
+} from 'react-icons/ai';
 
 const data = [
   {
@@ -23,6 +29,10 @@ const data = [
   },
   {
     title: 'Нэвтрэх',
+    Icon: AiOutlineLogin,
+  },
+  {
+    title: 'Миний гарын үсэг',
     Icon: AiOutlineLogin,
   },
 ];
