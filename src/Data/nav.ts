@@ -28,11 +28,11 @@ const data = [
     Icon: AiOutlinePhone,
   },
   {
-    title: 'Нэвтрэх',
+    title: 'Миний гарын үсэг',
     Icon: AiOutlineLogin,
   },
   {
-    title: 'Миний гарын үсэг',
+    title: 'Нэвтрэх',
     Icon: AiOutlineLogin,
   },
 ];
