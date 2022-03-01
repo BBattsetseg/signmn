@@ -9,15 +9,19 @@ const ListLink = styled.li`
   }
 `;
 
-const LinkAnchor = styled.a`
+export type LinkType = {
+  primary?: string | undefined;
+  secondary?: string | undefined;
+};
+const LinkAnchor = styled.a<LinkType>`
   height: 100%;
   width: 100%;
   text-decoration: none;
-  color:  ${(props) => (props.primary ? Theme.darkYellow : Theme.black)};
-  background: ${(props) =>
+  color:  ${(props: LinkType) => (props.primary ? Theme.darkYellow : Theme.black)};
+  background: ${(props: LinkType) =>
     props.primary ? Theme.primary : props.secondary ? Theme.blue : Theme.green};
   border: 1px solid ${({ theme }) => theme.black};
-  border-color:  ${(props) => (props.secondary ? Theme.darkYellow : Theme.black)};
+  border-color:  ${(props: LinkType) => (props.secondary ? Theme.darkYellow : Theme.black)};
   box-shadow: -0.2em 0.2em 0 ${({ theme }) => theme.blue};
   transform: translate(0.25em, -0.25em);
   transition: all ease-in-out 200ms;

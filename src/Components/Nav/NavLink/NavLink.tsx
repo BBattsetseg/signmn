@@ -2,7 +2,7 @@ import { useCursorContext } from '../../../Contexts/CursorContext';
 
 import { Children } from '../../../Types/types';
 
-import { LinkAnchor, ListLink as StyledLink } from './NavLink.style';
+import { LinkAnchor, LinkType, ListLink as StyledLink } from './NavLink.style';
 
 interface NavLinkTypes {
   href: string;
@@ -33,15 +33,15 @@ const NavLink = ({ children, href, title, onClick }: Children & NavLinkTypes) =>
         </LinkAnchor>
       ) : href == '#mysignature' ? (
         <LinkAnchor
-          secondary
+          secondary="secondary"
           href={href}
           title={title}
           onClick={
-            href == '#getsignature'
+            href == '#mysignature'
               ? onClick
               : undefined || href == '#login'
               ? onClick
-              : undefined || href == '#mysignature'
+              : undefined || href == '#getsignature'
               ? onClick
               : undefined
           }
@@ -50,7 +50,7 @@ const NavLink = ({ children, href, title, onClick }: Children & NavLinkTypes) =>
         </LinkAnchor>
       ) : (
         <LinkAnchor
-          primary
+          primary="primary"
           href={href}
           title={title}
           onClick={
