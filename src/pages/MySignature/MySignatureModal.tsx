@@ -16,8 +16,6 @@ export const MySignatureModal = (props: modalPropType) => {
     const [passwordInput, setPasswordInput] = useState('');
 
     const login = () => {
-      console.log('login function duudagdlaa');
-
       const foundPhone = datas.filter(
         (item) => item.phone.toLowerCase() === phoneInput.toLowerCase(),
       );
@@ -29,7 +27,6 @@ export const MySignatureModal = (props: modalPropType) => {
           if (item.phone == foundPhone[0].phone) return item;
         });
         if (foundPhone[0].phone == found[0].phone && foundPhone[0].password == found[0].password) {
-          // alert('Амжилттай нэвтэрлээ');
           if (foundPhone[0].signature) {
             alert('та "МИНИЙ ГАРЫН ҮСЭГ" хэсэг рүү өөрийн пин кодоороо нэвтэрч орно уу');
             setCurrentResult(2);
@@ -48,7 +45,7 @@ export const MySignatureModal = (props: modalPropType) => {
     return (
       <LoginUl onClick={() => console.log('inside daragdlaa')}>
         <FocusLock>
-          <p style={{ color: '#333', fontSize: '34px', textAlign: 'center' }}>
+          <p style={{ color: '#333', fontSize: '20px', textAlign: 'center', fontWeight: '400' }}>
             Миний гарын үсэг-рүү нэвтрэх
           </p>
           <InputPhone

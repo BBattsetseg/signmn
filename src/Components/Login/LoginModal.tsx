@@ -9,6 +9,7 @@ import { InputPassport, InputPhone } from '../Input/Input';
 import { datas } from '../../Data/users';
 import { PaymentComponent } from '../Payment/PaymentComponent';
 import { MySignature } from '../../pages/MySignature/MySignature';
+import { loginWeb } from '../../api/auth';
 
 export const LoginModal = (props: modalPropType) => {
   const { isShown, toggle } = props;
@@ -18,34 +19,40 @@ export const LoginModal = (props: modalPropType) => {
     const [phoneInput, setPhoneInput] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
 
-    const login = () => {
-      console.log('login function duudagdlaa');
+    const login = async () => {
+      const phone = parseInt(phoneInput);
+      const { data } = await loginWeb(phone, passwordInput);
 
-      const foundPhone = datas.filter(
-        (item) => item.phone.toLowerCase() === phoneInput.toLowerCase(),
-      );
-      const foundPassword = datas.filter(
-        (item) => item.password.toLowerCase() === passwordInput.toLowerCase(),
-      );
-      try {
-        let found = foundPassword.filter((item) => {
-          if (item.phone == foundPhone[0].phone) return item;
-        });
-        if (foundPhone[0].phone == found[0].phone && foundPhone[0].password == found[0].password) {
-          // alert('Амжилттай нэвтэрлээ');
-          if (foundPhone[0].signature) {
-            alert('та "МИНИЙ ГАРЫН ҮСЭГ" хэсэг рүү өөрийн пин кодоороо нэвтэрч орно уу');
-            setCurrentResult(2);
-          } else {
-            setCurrentResult(1);
-          }
-        } else {
-          alert('Таны нууц үг эсвэл нэвтрэх нэр буруу байна.');
-        }
-      } catch (e) {
-        console.log(e);
+      if (data.success == true) {
+        alert('Амжилттай нэвтэрлээ');
+      } else {
         alert('Таны нууц үг эсвэл нэвтрэх нэр буруу байна.');
       }
+      // const foundPhone = datas.filter(
+      //   (item) => item.phone.toLowerCase() === phoneInput.toLowerCase(),
+      // );
+      // const foundPassword = datas.filter(
+      //   (item) => item.password.toLowerCase() === passwordInput.toLowerCase(),
+      // );
+      // try {
+      //   let found = foundPassword.filter((item) => {
+      //     if (item.phone == foundPhone[0].phone) return item;
+      //   });
+      //   if (foundPhone[0].phone == found[0].phone && foundPhone[0].password == found[0].password) {
+      //     // alert('Амжилттай нэвтэрлээ');
+      //     if (foundPhone[0].signature) {
+      //       alert('та "МИНИЙ ГАРЫН ҮСЭГ" хэсэг рүү өөрийн пин кодоороо нэвтэрч орно уу');
+      //       setCurrentResult(2);
+      //     } else {
+      //       setCurrentResult(1);
+      //     }
+      //   } else {
+      //     alert('Таны нууц үг эсвэл нэвтрэх нэр буруу байна.');
+      //   }
+      // } catch (e) {
+      //   console.log(e);
+      //   alert('Таны нууц үг эсвэл нэвтрэх нэр буруу байна.');
+      // }
     };
 
     return (

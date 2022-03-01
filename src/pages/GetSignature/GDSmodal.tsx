@@ -4,11 +4,12 @@ import Modal from '../../Components/Modal/Modal';
 import { ListDsc } from './GDSmodal.style';
 import FocusLock from 'react-focus-lock';
 import { Button } from '../../Components/Button/Button';
-import { datas } from '../../Data/users';
+
 import { modalPropType } from '../../Types/types';
 import { GSButtons } from './GSButtons';
 
 import { LoginModal } from '../../Components/Login/LoginModal';
+import { checkuser } from '../../api/auth';
 
 export const GDCModal = (props: modalPropType) => {
   const { isShown, toggle } = props;
@@ -23,23 +24,16 @@ export const GDCModal = (props: modalPropType) => {
       setQuery(enterName);
     };
 
-    const search = () => {
-      let result = '';
-      const foundItems = datas.filter((item) => item.phone.toLowerCase() === query.toLowerCase());
+    const search = async () => {
+      const phone = parseInt(query);
+      const { data } = await checkuser(phone);
 
-      if (foundItems.length > 0) {
-        result = foundItems[0].phone;
-      } else {
-        console.log('бүртгэлд байхгүй');
-        result = ' ';
-      }
-
-      if (result == ' ' || result.length == 0) {
-        setCurrentComponent(1);
-        return;
-      } else {
+      if (data.phone_number !== null) {
         alert('Та манай системд бүртгэлтэй байна. Нэвтрэх хэсгээр орно уу');
         setCurrentComponent(2);
+      } else {
+        setCurrentComponent(1);
+        console.log('бүртгэлд байхгүй');
       }
     };
 

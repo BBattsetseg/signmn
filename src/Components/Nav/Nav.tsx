@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from 'react';
-
 import { data } from '../../Data/nav';
 import { AnchorArray, Offset } from '../../Types/types';
 import { LoginModal } from '../Login/LoginModal';
