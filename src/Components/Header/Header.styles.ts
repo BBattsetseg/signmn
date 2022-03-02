@@ -6,7 +6,7 @@ export const HeaderContainer = styled.header`
   position: relative;
   overflow-y: hidden;
   display: flex;
-  row-gap: 9em;
+  row-gap: 6em;
   font-size: 1rem;
   flex-direction: column;
   padding: 0 1em 2em 1em;
@@ -22,7 +22,7 @@ export const HeaderContainer = styled.header`
 export const H1 = styled.h1`
   position: relative;
   z-index: 1;
-  margin-top: 2em;
+  margin-top: 3em;
   color: ${({ theme }) => theme.darkYellow};
   line-height: 1.2;
   font-weight: 700;
@@ -32,25 +32,25 @@ export const H1 = styled.h1`
 
   @media screen and (min-width: ${({ theme }) => theme.bigScreen}) {
     padding: 0.05em 0.45em;
+    color: ${({ theme }) => theme.secondary};
     margin-top: 0;
     box-shadow: -0.25em 0.25em ${({ theme }) => theme.blue};
-    // background-color: ${({ theme }) => theme.green};
+    background-color: ${({ theme }) => theme.green};
     border: 2px solid ${({ theme }) => theme.black};
   }
 `;
 
 export const Description = styled.p`
-  color: ${({ theme }) => theme.black};
-  z-index: -1;
+  color: ${({ theme }) => theme.green};
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
-  font-size: 2em;
+  font-size: 1.7em;
   padding: 0 1em;
   @media screen and (min-width: ${({ theme }) => theme.bigScreen}) {
-    padding: 0 12em;
+    padding: 0 9em;
   }
 `;

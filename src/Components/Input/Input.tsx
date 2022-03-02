@@ -10,8 +10,8 @@ const Input: FC<InputProps> = ({ name, label, ...rest }) => {
   return <InputStyle type="text" id={name} {...rest} />;
 };
 
-const InputEmail: FC<InputProps> = () => {
-  return <InputEmailStyle placeholder="Имэйл хаягаа оруулна уу." required />;
+const InputEmail: FC<InputProps> = ({ name, label, ...rest }) => {
+  return <InputEmailStyle placeholder="Имэйл хаягаа оруулна уу." id={name} {...rest} required />;
 };
 
 const InputPhone: FC<InputProps> = ({ name, label, ...rest }) => {

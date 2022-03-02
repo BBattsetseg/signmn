@@ -10,9 +10,7 @@ export const InputPassStyle = styled.input`
   outline: none;
   box-shadow: -0.1em 0.1em 0 ${({ theme }) => theme.blue};
 `;
-export const InputEmailStyle = styled.input.attrs({
-  type: 'email',
-})`
+export const InputEmailStyle = styled.input`
   padding: 0.5rem;
   margin: 1rem auto;
   color: 'palevioletred';

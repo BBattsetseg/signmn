@@ -25,6 +25,7 @@ export const LoginModal = (props: modalPropType) => {
 
       if (data.success == true) {
         alert('Амжилттай нэвтэрлээ');
+        setCurrentResult(1); ///солино
       } else {
         alert('Таны нууц үг эсвэл нэвтрэх нэр буруу байна.');
       }

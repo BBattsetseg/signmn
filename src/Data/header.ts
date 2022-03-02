@@ -1,5 +1,4 @@
 const heading = 'Цахим гарын үсэг';
-const description =
-  "Гэрчилгээ шалгах  INPUT FUNCTION ...";
+const description = 'Гэрчилгээ хайх';
 
 export { heading, description };

@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { useMobileContext } from '../../Contexts/MobileContext';
 import { heading, description } from '../../Data/header';
 import { Offset, Anchor } from '../../Types/types';
+import { FindDsc } from '../FindDSC/FindDsc';
+import { Input } from '../Input/Input';
 import { HeaderContainer, H1, Description } from './Header.styles';
 
 const Triangle = loadable(async () => {
@@ -41,6 +43,7 @@ const Header = ({ id, offsetY }: Header) => {
       <H1 style={{ transform: `translate3d(0, ${multiply}px, 0)` }}>{heading}</H1>
       <Description style={{ transform: `translate3d(0, ${multiply}px, 0)` }}>
         {description}
+        <FindDsc />
       </Description>
       <Triangle multiply={multiply} />
       <Rectangle multiply={multiply} />
