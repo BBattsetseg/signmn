@@ -12,6 +12,7 @@ const ListLink = styled.li`
 export type LinkType = {
   primary?: string | undefined;
   secondary?: string | undefined;
+  find?: string | undefined;
 };
 const LinkAnchor = styled.a<LinkType>`
   height: 100%;
@@ -43,8 +44,11 @@ const LinkAnchor = styled.a<LinkType>`
   &:hover {
     transform: translate(0, 0);
     box-shadow: none;
-    background-color: ${({ theme }) => theme.darkYellow};
-    color: ${({ theme }) => theme.black};
+    background-color:${(props: LinkType) =>
+      props.primary ? Theme.primary : props.secondary ? Theme.blue : Theme.primary};
+    color:  ${(props: LinkType) => (props.primary ? Theme.green : Theme.primary)};
+    
+   
   }
 
   & > svg {

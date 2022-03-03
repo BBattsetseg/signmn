@@ -1,7 +1,7 @@
 import loadable from '@loadable/component';
 
 import { useReducedMotion } from 'framer-motion';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { isMobile as isMobileDevice } from 'react-device-detect';
 import styled, { ThemeProvider } from 'styled-components';
 
@@ -15,6 +15,8 @@ import { Separator } from './Components/Separator/Separator';
 import { CursorProvider } from './Contexts/CursorContext';
 import { useMobileContext } from './Contexts/MobileContext';
 import { useScrollPosition } from './Hooks/useScrollPosition';
+import { H1 } from './Components/Header/Header.styles';
+import { HeaderS } from './Components/HeaderS/HeaderS';
 
 const Footer = loadable(async () => {
   const { Footer } = await import('./Components/Footer/Footer');
@@ -44,6 +46,7 @@ const anchor = ['', 'about', 'gallery', 'getsignature', 'contact', 'mysignature'
 
 const App = () => {
   const { isMobile, setIsMobile } = useMobileContext();
+  const [isMySignature, setIsMySignature] = useState(0);
 
   useEffect(() => {
     setIsMobile(isMobileDevice);
@@ -60,14 +63,26 @@ const App = () => {
         {!isMobile && !usesReducedMotion && <Cursor />}
 
         <Container>
-          <Header offsetY={offsetY} />
-          <Nav ids={anchor} offsetY={offsetY} />
-          <About id={anchor[1]} />
-          <Separator />
-          <Gallery id={anchor[2]} />
-          <Separator />
-          <Contact id={anchor[4]} />
-          <Footer />
+          {isMySignature == 0 && (
+            <>
+              <Header offsetY={offsetY} />
+              <Nav ids={anchor} offsetY={offsetY} />
+              <About id={anchor[1]} />
+              <Separator />
+              <Gallery id={anchor[2]} />
+              <Separator />
+              <Contact id={anchor[4]} />
+              <Footer />
+            </>
+          )}
+          {isMySignature == 1 && (
+            <>
+              <Nav ids={anchor} offsetY={offsetY} />
+              <HeaderS offsetY={offsetY} />
+              <Contact id={anchor[4]} />
+              <Footer />
+            </>
+          )}
         </Container>
       </CursorProvider>
     </ThemeProvider>

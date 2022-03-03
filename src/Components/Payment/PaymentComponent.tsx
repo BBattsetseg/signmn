@@ -19,7 +19,7 @@ export const PaymentComponent = () => {
             <P style={{ color: 'red' }}>Төлбөрийн нэхэмжлэх очих тул мэдээллээ шалгана уу</P>
             <InputEmail name={'email'} label={'email'} value={email} />
             <InputPhone name={'phone'} label={'email'} value={phone} />
-            <Button onClick={() => setCurrenState(1)}>Үргэлжлүүлэх</Button>
+            <Button onClick={() => setCurrenState(1)}>Баталгаажуулах</Button>
           </PContainer>
         </>
       )}
@@ -56,7 +56,7 @@ export const PaymentComponent = () => {
 
           <Button
             onClick={() => {
-              alert(`Таны ${email} рүү илгээв.`), setCurrenState(2);
+              transfer(), setCurrenState(2);
             }}
           >
             Үргэлжлүүлэх

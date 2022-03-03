@@ -1,8 +1,10 @@
 import styled from 'styled-components';
+import { Theme } from '../../StyledComponents/Theme';
+import { LinkType } from '../Nav/NavLink/NavLink.style';
 
 const ButtonStyle = styled.button`
   background: ${({ theme }) => theme.green};
-  border-radius: 3px;
+  border-radius: ${(props: LinkType) => (props.find ? '0' : '3px')};
   width: 100%;
   border: none;
   color: ${({ theme }) => theme.black};
@@ -13,7 +15,7 @@ const ButtonStyle = styled.button`
     transform: translate(0, 0);
     box-shadow: none;
     background-color: inherit;
-    color: ${({ theme }) => theme.black};
+    color: ${(props: LinkType) => (props.find ? Theme.darkYellow : Theme.black)};
     cursor: pointer;
   }
 `;

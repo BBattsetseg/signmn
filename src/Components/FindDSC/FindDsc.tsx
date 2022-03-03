@@ -18,7 +18,7 @@ export const FindDsc = () => {
         label={'find1'}
         placeholder={'Утасны дугаар'}
       />
-      <Button style={{ borderRadius: 0 }} onClick={() => console.log('хайж байна')}>
+      <Button find="find" onClick={() => console.log('хайж байна')}>
         Хайх
       </Button>
     </ContainerFind>
