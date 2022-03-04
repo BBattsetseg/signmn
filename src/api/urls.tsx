@@ -1,4 +1,4 @@
-const server_url = 'https://api.sign.mn/v1';
+const server_url = 'https://dev.sign.mn/api/v1';
 
 export const checkUserExist = () => server_url + '/checkuser';
 export const getConfigUrls = () => server_url + '/config/';
