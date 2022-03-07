@@ -2,7 +2,7 @@ import { useCursorContext } from '../../../Contexts/CursorContext';
 
 import { Children } from '../../../Types/types';
 
-import { LinkAnchor, LinkType, ListLink as StyledLink } from './NavLink.style';
+import { LinkAnchor, ListLink as StyledLink } from './NavLink.style';
 
 interface NavLinkTypes {
   href: string;

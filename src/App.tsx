@@ -15,8 +15,9 @@ import { Separator } from './Components/Separator/Separator';
 import { CursorProvider } from './Contexts/CursorContext';
 import { useMobileContext } from './Contexts/MobileContext';
 import { useScrollPosition } from './Hooks/useScrollPosition';
-import { H1 } from './Components/Header/Header.styles';
+
 import { HeaderS } from './Components/HeaderS/HeaderS';
+import { Navs } from './Components/Navs/Navs';
 
 const Footer = loadable(async () => {
   const { Footer } = await import('./Components/Footer/Footer');
@@ -43,10 +44,20 @@ const Container = styled.div`
 `;
 
 const anchor = ['', 'about', 'gallery', 'getsignature', 'contact', 'mysignature', 'login'];
+const anchorS = [
+  '',
+  'aboutMe',
+  'pendingDoc',
+  'signing',
+  'myArchive',
+  'getsignature',
+  'contact',
+  'login',
+];
 
 const App = () => {
   const { isMobile, setIsMobile } = useMobileContext();
-  const [isMySignature, setIsMySignature] = useState(0);
+  const [isMySignature, setIsMySignature] = useState(1);
 
   useEffect(() => {
     setIsMobile(isMobileDevice);
@@ -77,9 +88,9 @@ const App = () => {
           )}
           {isMySignature == 1 && (
             <>
-              <Nav ids={anchor} offsetY={offsetY} />
+              <Navs ids={anchorS} offsetY={offsetY} />
               <HeaderS offsetY={offsetY} />
-              <Contact id={anchor[4]} />
+              <Contact id={anchorS[6]} />
               <Footer />
             </>
           )}
