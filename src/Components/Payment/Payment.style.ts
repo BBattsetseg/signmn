@@ -11,9 +11,12 @@ export const P = styled.p`
 `;
 export const H3 = styled.h3`
   font-weight: bold;
-  color: #333;
+  color: ${({ theme }) => theme.primary};
   text-align: center;
   margin-bottom: 10px;
+  &:hover {
+    color: ${({ theme }) => theme.blue};
+  }
 `;
 export const SpaceBetween = styled.div`
   display: flex;

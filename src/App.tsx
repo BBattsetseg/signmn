@@ -44,20 +44,11 @@ const Container = styled.div`
 `;
 
 const anchor = ['', 'about', 'gallery', 'getsignature', 'contact', 'mysignature', 'login'];
-const anchorS = [
-  '',
-  'aboutMe',
-  'pendingDoc',
-  'signing',
-  'myArchive',
-  'getsignature',
-  'contact',
-  'login',
-];
+const anchorS = ['', 'aboutMe', 'pendingDoc', 'signing', 'myArchive', 'getsignature', 'login'];
 
 const App = () => {
   const { isMobile, setIsMobile } = useMobileContext();
-  const [isMySignature, setIsMySignature] = useState(1);
+  const [isMySignature, setIsMySignature] = useState(0);
 
   useEffect(() => {
     setIsMobile(isMobileDevice);

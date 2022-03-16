@@ -32,10 +32,6 @@ const data = [
     Icon: AiOutlineLogin,
   },
   {
-    title: 'Холбоо барих',
-    Icon: AiOutlineLogin,
-  },
-  {
     title: 'Нэвтрэх',
     Icon: AiOutlineLogin,
   },

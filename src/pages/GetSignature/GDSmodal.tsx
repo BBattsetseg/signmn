@@ -7,7 +7,8 @@ import { Button } from '../../Components/Button/Button';
 import { modalPropType } from '../../Types/types';
 import { GSButtons } from './GSButtons';
 import { LoginModal } from '../../Components/Login/LoginModal';
-import { checkuser } from '../../api/auth';
+//import { checkuser } from '../../api/auth';
+import { datas } from '../../Data/users';
 
 export const GDCModal = (props: modalPropType) => {
   const { isShown, toggle } = props;
@@ -22,20 +23,36 @@ export const GDCModal = (props: modalPropType) => {
       setQuery(enterName);
     };
 
-    const search = async () => {
-      try {
-        const phone = parseInt(query);
-        const { data } = await checkuser(phone);
+    const search = () => {
+      // try {
+      //   const phone = parseInt(query);
+      //   const { data } = await checkuser(phone);
+      //   if (data.phone_number !== null) {
+      //     alert('Та манай системд бүртгэлтэй байна. Нэвтрэх хэсгээр орно уу');
+      //     setCurrentComponent(2);
+      //   } else {
+      //     setCurrentComponent(1);
+      //     console.log('бүртгэлд байхгүй');
+      //   }
+      // } catch (e) {
+      //   console.log(e);
+      // }
 
-        if (data.phone_number !== null) {
-          alert('Та манай системд бүртгэлтэй байна. Нэвтрэх хэсгээр орно уу');
-          setCurrentComponent(2);
-        } else {
-          setCurrentComponent(1);
-          console.log('бүртгэлд байхгүй');
-        }
-      } catch (e) {
-        console.log(e);
+      let result = '';
+      const foundItems = datas.filter((item) => item.phone.toLowerCase() === query.toLowerCase());
+
+      if (foundItems.length > 0) {
+        result = foundItems[0].phone;
+      } else {
+        console.log('бүртгэлд байхгүй');
+        result = ' ';
+      }
+      if (result == ' ' || result.length == 0) {
+        setCurrentComponent(1);
+        return;
+      } else {
+        alert('Та манай системд бүртгэлтэй байна. Нэвтрэх хэсгээр орно уу');
+        setCurrentComponent(2);
       }
     };
 

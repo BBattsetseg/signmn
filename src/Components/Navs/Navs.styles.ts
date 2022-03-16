@@ -40,8 +40,7 @@ const NavsContainer = styled.nav`
     }
   }
 
-  width: 20%;
-  height: 100vh;
+  width: 100%;
   padding: 1.5em;
   display: flex;
   flex-direction: row;
